@@ -4,12 +4,12 @@ const authors = express.Router();
 
 authors.route('/')
 .get((req, res) => {
-    res.send("Shut Up you Bitch!! Author");
+    res.send("No Authors here Bro!!");
 } );
 
-authors.route('/Bitch')
+authors.route('/hide')
 .get((req, res) =>{
-    res.send("Fuck Off Bitch!!");
+    res.send("Authors Hide!!");
 });
 
 module.exports = authors;
