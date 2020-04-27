@@ -7,7 +7,9 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 
+
 let app = express();
+
 const port = process.env.PORT || 3000;
 
 const nav = [{link:'/books' , title:'book'},
@@ -20,9 +22,7 @@ const authorRoute = require('./src/routes/authorRoutes');
 const adminRouter = require('./src/routes/adminRouter')(nav);
 const authRouter = require('./src/routes/authRouter')(nav);
 
-require('./src/config/passport.js')(app);
-app.use(cookieParser());
-app.use(session({secret : 'Library'}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname , 'public')));
@@ -31,7 +31,9 @@ app.use('/js' , express.static(path.join(__dirname , 'node_modules/bootstrap/dis
 app.use('/js' , express.static(path.join(__dirname , 'node_modules/jquery/dist'))); 
 app.set('views' , './src/views');
 app.set('view engine' , 'ejs');
-
+app.use(cookieParser());
+app.use(session({secret : 'Library' , resave: true, saveUninitialized: true}));
+require('./src/config/passport.js')(app);
 
 
 app.use('/books', bookRoute);
@@ -41,6 +43,8 @@ app.use('/authors' , authorRoute);
 app.use('/admin' , adminRouter);
 
 app.use('/auth', authRouter);
+
+
 
 
 app.get('/' , function(req ,res){

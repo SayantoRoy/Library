@@ -6,7 +6,7 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
   
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@
 
 
 
-		<link href="css/styles.css" rel="stylesheet"> -->
+		<link href="/css/styles.css" rel="stylesheet"> -->
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -87,24 +87,21 @@
 
 <!-- Signup Form -->
 <div class="main-w3layouts wrapper">
-  <h1>Sign Me UP!!</h1>
+  <h1>Sign Me IN!!</h1>
   <div class="main-agileinfo">
     <div class="agileits-top">
-      <form action="/auth/signup" method="POST" >
+      <form action="/auth/signin" method="POST" >
         <input class="text" type="text" name="username" placeholder="Username" required="">
-        <input class="text email" type="email" name="email" placeholder="Email" required="">
         <input class="text" type="password" name="password" placeholder="Password" required="">
-        <input class="text w3lpass" type="password" name="ipassword" placeholder="Confirm Password" required="">
         <div class="wthree-text">
           <label class="anim">
             <input type="checkbox" class="checkbox" required="">
-            <span>I Agree To The Terms & Conditions</span>
           </label>
           <div class="clear"> </div>
         </div>
         <input type="submit" value="SIGNUP">
       </form>
-      <p>Don't have an Account? <a href="/auth/login"> Login Now!</a></p>
+      <p>Don't have an Account? <a href="/"> Sign Up!</a></p>
     </div>
   </div>
 
