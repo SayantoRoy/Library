@@ -2,7 +2,7 @@ const passport = require('passport');
 const {Strategy} = require('passport-local');
 const {MongoClient} = require('mongodb');  
 const debug = require('debug')('app:localStorage.strategy');
-  debug('asd');
+  
 
 
 module.exports = function localStrategy(){

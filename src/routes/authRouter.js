@@ -50,9 +50,25 @@ function router(nav){
     
 
     authRouter.route('/profile')
+    .all((req,res,next) =>{
+        if(req.user)
+        {
+            next();
+        }
+        else
+        {
+            res.redirect('/auth/signin');
+        }
+    })
     .get((req,res)=>{
         debug(req.user);
         res.json(req.user);
+    });
+
+    authRouter.route('/logout')
+    .get((req , res)=>{
+        req.logout();
+        res.redirect('/auth/signin');
     });
     return authRouter;
 }

@@ -9,12 +9,12 @@ const session = require('express-session');
 
 
 let app = express();
-
 const port = process.env.PORT || 3000;
+
 
 const nav = [{link:'/books' , title:'book'},
 {link:'/authors' , title:'author'},
-{link:'/doker' , title:'Doker'}
+{link:'/auth/logout', title:'logout'}
 ] ;
 
 const bookRoute = require('./src/routes/bookrouter')(nav);
