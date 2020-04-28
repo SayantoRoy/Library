@@ -2,7 +2,7 @@ let express = require('express');
 const authRouter = express.Router();
 const {MongoClient} = require('mongodb');
 const debug = require('debug')('app:authRouter');
-
+const passport = require('passport');
 
 function router(nav){
     authRouter.route('/signup')
@@ -34,13 +34,20 @@ function router(nav){
     });
 
 
-    authRouter.route('/singin')
+    authRouter.route('/signin')
     .get((req, res)=>{
         res.render('signin' , {
             nav,
-            title : "SignIn"
-        })
+            title : "Sign In"
+        });
     })
+    .post(passport.authenticate('local' , {
+        successRedirect:'/auth/profile',
+        failureRedirect: '/'
+    } )
+    
+    );
+    
 
     authRouter.route('/profile')
     .get((req,res)=>{
